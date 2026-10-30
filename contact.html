@@ -2,785 +2,349 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#050912">
-  <title>Contact Us | Simple J</title>
-
-  <style>
-    :root {
-      --blue: #078cff;
-      --cyan: #49e7ff;
-      --bg: #050912;
-      --card: rgba(12, 21, 35, .88);
-      --muted: #91a3b9;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      min-height: 100vh;
-      overflow-x: hidden;
-      background: var(--bg);
-      color: #fff;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* Animated background */
-    .background-glow {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      overflow: hidden;
-      pointer-events: none;
-      background:
-        radial-gradient(ellipse at 15% 5%, #082c51 0, transparent 42%),
-        radial-gradient(ellipse at 90% 65%, #101039 0, transparent 40%),
-        #050912;
-    }
-
-    .orb {
-      position: absolute;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      filter: blur(85px);
-      opacity: .25;
-      animation: floatOrb 11s ease-in-out infinite alternate;
-    }
-
-    .orb.one {
-      background: #007bff;
-      top: 10%;
-      left: -140px;
-    }
-
-    .orb.two {
-      background: #00e5ff;
-      right: -150px;
-      top: 45%;
-      animation-delay: -4s;
-    }
-
-    .orb.three {
-      width: 220px;
-      height: 220px;
-      background: #754dff;
-      left: 45%;
-      bottom: -130px;
-      animation-delay: -7s;
-    }
-
-    .grid-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      opacity: .15;
-      background-image:
-        linear-gradient(rgba(80, 160, 255, .12) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(80, 160, 255, .12) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: linear-gradient(to bottom, black, transparent 85%);
-    }
-
-    @keyframes floatOrb {
-      from { transform: translate(0, 0) scale(1); }
-      to { transform: translate(75px, -55px) scale(1.2); }
-    }
-
-    /* Navigation */
-    header {
-      min-height: 82px;
-      padding: 18px 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 22px;
-      flex-wrap: wrap;
-      background: rgba(5, 9, 18, .72);
-      border-bottom: 1px solid rgba(105, 171, 255, .16);
-      backdrop-filter: blur(18px);
-      animation: slideDown .8s ease both;
-    }
-
-    .brand {
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: -1px;
-    }
-
-    .brand span {
-      color: var(--blue);
-      text-shadow: 0 0 20px rgba(7, 140, 255, .7);
-    }
-
-    .tagline {
-      margin-top: 5px;
-      color: #91a3b9;
-      font-size: 11px;
-      letter-spacing: 1.3px;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: #c9d5e4;
-      font-size: 13px;
-      transition: color .25s, text-shadow .25s;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--cyan);
-      text-shadow: 0 0 15px rgba(73, 231, 255, .5);
-    }
-
-    /* Hero */
-    .hero {
-      position: relative;
-      text-align: center;
-      padding: 72px 20px 38px;
-      animation: heroReveal 1s .15s ease both;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      padding: 9px 15px;
-      border: 1px solid rgba(73, 231, 255, .3);
-      border-radius: 30px;
-      color: var(--cyan);
-      background: rgba(7, 140, 255, .08);
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .live-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--cyan);
-      box-shadow: 0 0 12px var(--cyan);
-      animation: blink 1.5s ease infinite;
-    }
-
-    .hero h1 {
-      margin: 24px 0 16px;
-      font-size: clamp(38px, 7vw, 69px);
-      line-height: 1.08;
-      letter-spacing: -2.5px;
-    }
-
-    .hero h1 span {
-      display: inline-block;
-      color: transparent;
-      background: linear-gradient(100deg, #078cff, #50e5ff, #a3b8ff, #078cff);
-      background-size: 250% auto;
-      background-clip: text;
-      -webkit-background-clip: text;
-      animation: gradientFlow 5s linear infinite;
-    }
-
-    .hero p {
-      max-width: 540px;
-      margin: 0 auto;
-      color: #a5b3c5;
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    /* Contact card */
-    .contact-wrap {
-      width: min(600px, 91%);
-      margin: 5px auto 75px;
-      position: relative;
-      animation: cardReveal 1s .3s cubic-bezier(.18,.8,.25,1) both;
-    }
-
-    .contact-card {
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      padding: 34px;
-      border-radius: 20px;
-      background: var(--card);
-      border: 1px solid rgba(73, 155, 255, .27);
-      box-shadow:
-        0 25px 90px rgba(0, 0, 0, .35),
-        0 0 50px rgba(7, 140, 255, .08);
-      backdrop-filter: blur(20px);
-    }
-
-    .contact-card::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: -2px;
-      left: -100%;
-      width: 65%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--cyan), #fff, transparent);
-      box-shadow: 0 0 20px var(--blue);
-      animation: borderSweep 5s ease-in-out infinite;
-    }
-
-    .card-heading {
-      display: flex;
-      gap: 15px;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .icon-box {
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-      width: 52px;
-      height: 52px;
-      color: var(--cyan);
-      font-size: 24px;
-      border-radius: 14px;
-      border: 1px solid rgba(73, 231, 255, .25);
-      background: linear-gradient(145deg, rgba(7, 140, 255, .2), rgba(73, 231, 255, .04));
-      box-shadow: inset 0 0 18px rgba(7, 140, 255, .08);
-      animation: iconFloat 3s ease-in-out infinite;
-    }
-
-    .card-heading h2 {
-      font-size: 23px;
-      margin-bottom: 6px;
-    }
-
-    .card-heading p {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .form-intro {
-      color: #94a6ba;
-      font-size: 13px;
-      line-height: 1.7;
-      margin: 20px 0 27px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-      opacity: 0;
-      animation: fieldReveal .65s ease forwards;
-    }
-
-    .form-group:nth-of-type(1) { animation-delay: .45s; }
-    .form-group:nth-of-type(2) { animation-delay: .55s; }
-    .form-group:nth-of-type(3) { animation-delay: .65s; }
-    .form-group:nth-of-type(4) { animation-delay: .75s; }
-
-    label {
-      display: block;
-      margin-bottom: 9px;
-      color: #dce9f7;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .input-wrap {
-      position: relative;
-    }
-
-    .input-wrap .field-icon {
-      position: absolute;
-      left: 14px;
-      top: 15px;
-      color: #6d8eae;
-      font-size: 15px;
-      transition: color .25s;
-      pointer-events: none;
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      padding: 15px 14px 15px 42px;
-      color: #fff;
-      background: rgba(4, 10, 19, .82);
-      border: 1px solid #25364a;
-      border-radius: 10px;
-      outline: none;
-      font-size: 14px;
-      transition:
-        border-color .3s,
-        box-shadow .3s,
-        background .3s,
-        transform .3s;
-    }
-
-    textarea {
-      min-height: 125px;
-      resize: vertical;
-      line-height: 1.6;
-      padding-top: 14px;
-    }
-
-    textarea + .field-icon {
-      top: 15px;
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: #64768c;
-    }
-
-    input:focus,
-    textarea:focus {
-      border-color: var(--blue);
-      background: rgba(5, 18, 32, .96);
-      box-shadow: 0 0 0 3px rgba(7, 140, 255, .12), 0 0 24px rgba(7, 140, 255, .08);
-      transform: translateY(-1px);
-    }
-
-    .input-wrap:focus-within .field-icon {
-      color: var(--cyan);
-    }
-
-    /* Animated WhatsApp button */
-    .submit-btn {
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 17px 20px;
-      margin-top: 7px;
-      border: 1px solid rgba(114, 205, 255, .5);
-      border-radius: 10px;
-      background: linear-gradient(100deg, #006ce0, #078cff, #1462e7);
-      background-size: 200% auto;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: .3px;
-      cursor: pointer;
-      box-shadow: 0 8px 30px rgba(7, 140, 255, .25);
-      transition: transform .25s, box-shadow .25s;
-      animation: buttonGlow 3s ease-in-out infinite;
-    }
-
-    .submit-btn::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -80%;
-      width: 45%;
-      height: 200%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.38), transparent);
-      transform: rotate(20deg);
-      transition: left .6s ease;
-    }
-
-    .submit-btn:hover::before {
-      left: 130%;
-    }
-
-    .submit-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 13px 35px rgba(7, 140, 255, .38);
-    }
-
-    .submit-btn:active {
-      transform: scale(.98);
-    }
-
-    .submit-btn:disabled {
-      cursor: wait;
-      opacity: .85;
-    }
-
-    .arrow {
-      display: inline-block;
-      font-size: 20px;
-      transition: transform .3s;
-    }
-
-    .submit-btn:hover .arrow {
-      transform: translateX(5px);
-    }
-
-    .privacy-note {
-      margin-top: 16px;
-      text-align: center;
-      color: #77899e;
-      font-size: 11px;
-      line-height: 1.7;
-    }
-
-    .trust-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 9px;
-      margin-top: 22px;
-      color: #8ba0b6;
-      font-size: 11px;
-    }
-
-    .trust-row span {
-      color: #45edac;
-    }
-
-    footer {
-      border-top: 1px solid rgba(105, 171, 255, .15);
-      padding: 25px 20px;
-      color: #7f91a7;
-      background: rgba(4, 8, 15, .55);
-      text-align: center;
-      font-size: 12px;
-      animation: fadeIn .9s 1s both;
-    }
-
-    footer span {
-      color: var(--blue);
-      font-weight: bold;
-    }
-
-    /* Surprise particles */
-    .particle {
-      position: fixed;
-      z-index: 100;
-      left: 0;
-      top: 0;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      pointer-events: none;
-      background: var(--cyan);
-      box-shadow: 0 0 12px var(--cyan);
-      animation: burst .8s ease-out forwards;
-    }
-
-    @keyframes burst {
-      to {
-        transform: translate(var(--x), var(--y)) scale(0);
-        opacity: 0;
-      }
-    }
-
-    @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-25px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes heroReveal {
-      from { opacity: 0; transform: translateY(25px); filter: blur(8px); }
-      to { opacity: 1; transform: translateY(0); filter: blur(0); }
-    }
-
-    @keyframes cardReveal {
-      from { opacity: 0; transform: translateY(35px) scale(.97); filter: blur(8px); }
-      to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-    }
-
-    @keyframes fieldReveal {
-      from { opacity: 0; transform: translateX(-12px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    @keyframes gradientFlow {
-      to { background-position: 250% center; }
-    }
-
-    @keyframes blink {
-      50% { opacity: .35; box-shadow: 0 0 3px var(--cyan); }
-    }
-
-    @keyframes iconFloat {
-      0%, 100% { transform: translateY(0) rotate(0); }
-      50% { transform: translateY(-4px) rotate(3deg); }
-    }
-
-    @keyframes buttonGlow {
-      0%, 100% { box-shadow: 0 8px 28px rgba(7, 140, 255, .2); }
-      50% { box-shadow: 0 8px 38px rgba(7, 140, 255, .42); }
-    }
-
-    @keyframes borderSweep {
-      0% { left: -70%; }
-      50%, 100% { left: 130%; }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @media (max-width: 650px) {
-      header {
-        padding: 17px 5%;
-      }
-
-      nav {
-        width: 100%;
-        justify-content: space-between;
-        gap: 12px;
-      }
-
-      nav a {
-        font-size: 12px;
-      }
-
-      .hero {
-        padding: 55px 20px 32px;
-      }
-
-      .hero h1 {
-        letter-spacing: -1.5px;
-      }
-
-      .contact-card {
-        padding: 25px 19px;
-      }
-
-      .card-heading h2 {
-        font-size: 20px;
-      }
-
-      .contact-wrap {
-        margin-bottom: 50px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Simple J</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.contact-hero {
+  position:relative;
+  overflow:hidden;
+  padding:100px 8% 75px;
+  text-align:center;
+  background:radial-gradient(ellipse at 50% 0%,rgba(214,173,101,.19),transparent 65%),#08090b;
+}
+.contact-hero::before,.contact-hero::after {
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  border:1px solid rgba(214,173,101,.16);
+  border-radius:50%;
+  animation:contactOrbit 18s linear infinite;
+}
+.contact-hero::before {left:-150px;top:20px}
+.contact-hero::after {right:-150px;bottom:-150px;animation-direction:reverse}
+.contact-hero small {color:#d6ad65;letter-spacing:5px;font-size:10px}
+.contact-hero h1 {
+  position:relative;
+  z-index:1;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(45px,8vw,85px);
+  letter-spacing:-4px;
+  margin:22px 0;
+  animation:contactRise 1s ease both;
+}
+.contact-hero h1 span {color:#d6ad65}
+.contact-hero p {position:relative;z-index:1;color:#999;font-size:14px;line-height:1.9}
+.contact-main {
+  max-width:1200px;
+  margin:auto;
+  padding:75px 7%;
+  display:grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap:55px;
+}
+.contact-intro {padding-top:15px}
+.contact-intro small {color:#d6ad65;letter-spacing:4px;font-size:10px}
+.contact-intro h2 {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:43px;
+  line-height:1.15;
+  margin:20px 0;
+}
+.contact-intro h2 span {color:#d6ad65}
+.contact-intro>p {color:#999;font-size:13px;line-height:2;margin-bottom:35px}
+.contact-details {display:grid;gap:17px}
+.contact-detail {
+  display:flex;
+  align-items:center;
+  gap:17px;
+  padding:18px;
+  background:#111318;
+  border:1px solid #292b30;
+  transition:.35s;
+}
+.contact-detail:hover {
+  transform:translateX(8px);
+  border-color:#d6ad65;
+}
+.contact-icon {
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  background:rgba(214,173,101,.12);
+  color:#d6ad65;
+  font-size:20px;
+}
+.contact-detail small {display:block;color:#888;font-size:10px;margin-bottom:5px}
+.contact-detail strong {font-size:13px;font-weight:600}
+.contact-form {
+  background:linear-gradient(145deg,#17191e,#0f1013);
+  border:1px solid #333;
+  padding:38px;
+  box-shadow:0 25px 70px #0005;
+  position:relative;
+  overflow:hidden;
+}
+.contact-form::before {
+  content:"";
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:2px;
+  background:linear-gradient(90deg,transparent,#d6ad65,transparent);
+  animation:goldSweep 4s linear infinite;
+}
+.contact-form h2 {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:28px;
+  margin-bottom:10px;
+}
+.contact-form>p {color:#999;font-size:12px;margin-bottom:30px;line-height:1.8}
+.form-group {margin-bottom:21px}
+.form-group label {
+  display:block;
+  color:#ccc;
+  font-size:11px;
+  margin-bottom:10px;
+  letter-spacing:1px;
+}
+.form-group input,.form-group textarea,.form-group select {
+  width:100%;
+  padding:16px;
+  background:#090a0c;
+  border:1px solid #34363c;
+  color:white;
+  outline:none;
+  font-family:'DM Sans',sans-serif;
+  font-size:13px;
+  transition:.3s;
+}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus {
+  border-color:#d6ad65;
+  box-shadow:0 0 15px rgba(214,173,101,.1);
+}
+.form-group textarea {height:130px;resize:vertical}
+.form-group select option {background:#111}
+.form-row {display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.submit-btn {
+  width:100%;
+  padding:17px;
+  border:0;
+  background:#d6ad65;
+  color:#08090b;
+  font-weight:800;
+  letter-spacing:2px;
+  font-size:11px;
+  transition:.35s;
+}
+.submit-btn:hover {
+  background:white;
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(214,173,101,.2);
+}
+.form-note {color:#777;font-size:10px;text-align:center;margin-top:17px;line-height:1.7}
+.contact-bottom {
+  text-align:center;
+  padding:75px 20px;
+  background:radial-gradient(ellipse at center,rgba(214,173,101,.12),transparent 70%),#101115;
+}
+.contact-bottom h2 {font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,5vw,48px);margin-bottom:15px}
+.contact-bottom p {color:#999;font-size:13px;margin-bottom:25px}
+@keyframes contactOrbit {to{transform:rotate(360deg)}}
+@keyframes contactRise {
+  from{opacity:0;transform:translateY(35px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes goldSweep {
+  0%{transform:translateX(-100%)}
+  100%{transform:translateX(100%)}
+}
+@media(max-width:800px) {
+  .contact-main {grid-template-columns:1fr;gap:40px}
+}
+@media(max-width:550px) {
+  .contact-form {padding:25px 19px}
+  .form-row {grid-template-columns:1fr}
+  .contact-intro h2 {font-size:36px}
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {animation:none!important;transition:none!important}
+}
+</style>
 </head>
 
 <body>
-  <div class="background-glow">
-    <div class="orb one"></div>
-    <div class="orb two"></div>
-    <div class="orb three"></div>
-  </div>
-  <div class="grid-overlay"></div>
 
-  <header>
-    <a href="index.html">
-      <div class="brand">Simple <span>J.</span></div>
-      <p class="tagline">SMART GADGETS. BETTER LIVING.</p>
-    </a>
+<div class="announcement">WE'RE HERE TO HELP — WELCOME TO SIMPLE J</div>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="shop.html">Shop</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html" class="active">Contact Us</a>
-    </nav>
-  </header>
+<nav class="navbar">
+  <a href="index.html" class="logo">SIMPLE<span>J.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-contact">GET IN TOUCH ↗</a>
+</nav>
 
-  <section class="hero">
-    <div class="eyebrow">
-      <span class="live-dot"></span>
-      LET'S CONNECT
-    </div>
+<header class="contact-hero">
+  <small>LET'S START A CONVERSATION</small>
+  <h1>Let's talk <span>technology.</span></h1>
+  <p>Questions, product enquiries or something special in mind?<br>
+  We'd love to hear from you.</p>
+</header>
 
-    <h1>Let's Make Tech<br><span>Happen.</span></h1>
+<main class="contact-main">
 
+  <section class="contact-intro">
+    <small>CONNECT WITH SIMPLE J</small>
+    <h2>Every great experience starts with a <span>conversation.</span></h2>
     <p>
-      Found a gadget you love? Have a question?
-      Tell us what you're looking for and let's make it happen.
+      Tell us what you're looking for. Whether you have a question
+      about a gadget or need help choosing your next device,
+      send us a message.
     </p>
+
+    <div class="contact-details">
+      <div class="contact-detail">
+        <div class="contact-icon">✉</div>
+        <div>
+          <small>EMAIL ENQUIRIES</small>
+          <strong>Contact us through our form</strong>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-icon">◉</div>
+        <div>
+          <small>WHATSAPP SUPPORT</small>
+          <strong>Chat with our team</strong>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-icon">⌖</div>
+        <div>
+          <small>PRODUCT ENQUIRIES</small>
+          <strong>Find the device you want</strong>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <main class="contact-wrap">
-    <section class="contact-card">
-      <div class="card-heading">
-        <div class="icon-box">✦</div>
-        <div>
-          <h2>Talk to Simple J</h2>
-          <p>One message away from your next gadget.</p>
+  <section class="contact-form">
+    <h2>Send us a message.</h2>
+    <p>Complete the form below and continue directly to WhatsApp.</p>
+
+    <form id="contactForm">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">YOUR NAME</label>
+          <input id="name" name="name" type="text" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">PHONE NUMBER</label>
+          <input id="phone" name="phone" type="tel" placeholder="Your phone number" required>
         </div>
       </div>
 
-      <p class="form-intro">
-        Fill in your details below. Your message will open directly
-        in WhatsApp, ready for you to send.
+      <div class="form-group">
+        <label for="email">EMAIL ADDRESS</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="product">WHAT ARE YOU INTERESTED IN?</label>
+        <select id="product" name="product" required>
+          <option value="">Select a category</option>
+          <option>Apple products</option>
+          <option>Samsung products</option>
+          <option>Sony products</option>
+          <option>JBL products</option>
+          <option>Dell computers</option>
+          <option>Nothing products</option>
+          <option>Other enquiry</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">YOUR MESSAGE</label>
+        <textarea id="message" name="message" placeholder="Tell us what you're looking for..." required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">SEND VIA WHATSAPP ↗</button>
+
+      <p class="form-note">
+        Your message will open in WhatsApp for you to review and send.
       </p>
 
-      <form id="contactForm">
-        <div class="form-group">
-          <label for="name">Your Name</label>
-          <div class="input-wrap">
-            <span class="field-icon">♙</span>
-            <input
-              id="name"
-              type="text"
-              placeholder="What should we call you?"
-              autocomplete="name"
-              required
-            >
-          </div>
-        </div>
+    </form>
+  </section>
 
-        <div class="form-group">
-          <label for="address">Delivery Address</label>
-          <div class="input-wrap">
-            <span class="field-icon">⌖</span>
-            <input
-              id="address"
-              type="text"
-              placeholder="Enter your delivery address"
-              autocomplete="street-address"
-              required
-            >
-          </div>
-        </div>
+</main>
 
-        <div class="form-group">
-          <label for="product">Product You're Interested In</label>
-          <div class="input-wrap">
-            <span class="field-icon">▣</span>
-            <input
-              id="product"
-              type="text"
-              placeholder="e.g. iPhone, laptop, smartwatch"
-              required
-            >
-          </div>
-        </div>
+<section class="contact-bottom">
+  <h2>Let's make it happen.</h2>
+  <p>Your next technology experience could start with one message.</p>
+  <a href="shop.html" class="btn-primary">EXPLORE OUR COLLECTION ↗</a>
+</section>
 
-        <div class="form-group">
-          <label for="message">Your Message</label>
-          <div class="input-wrap">
-            <textarea
-              id="message"
-              placeholder="Tell us what you need..."
-              required
-            ></textarea>
-            <span class="field-icon">✎</span>
-          </div>
-        </div>
+<footer class="footer">
+  <div class="footer-top">
+    <div>
+      <a href="index.html" class="logo">SIMPLE<span>J.</span></a>
+      <p>Technology, thoughtfully selected.</p>
+    </div>
+    <div>
+      <h3>Explore</h3>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About us</a>
+    </div>
+    <div>
+      <h3>Support</h3>
+      <a href="contact.html">Contact</a>
+      <a href="faq.html">FAQs</a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 SIMPLE J. All rights reserved.</div>
+</footer>
 
-        <button class="submit-btn" id="submitBtn" type="submit">
-          <span id="buttonText">Continue to WhatsApp</span>
-          <span class="arrow" id="buttonArrow">↗</span>
-        </button>
+<script src="script.js"></script>
 
-        <p class="privacy-note">
-          Your WhatsApp app or WhatsApp Web will open with your message.
-          Review it before pressing Send.
-        </p>
-      </form>
+```html
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-      <div class="trust-row">
-        <span>●</span>
-        Direct contact with Simple J
-      </div>
-    </section>
-  </main>
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const product = document.getElementById("product").value;
+  const message = document.getElementById("message").value.trim();
 
-  <footer>
-    &copy; 2026 Simple <span>J.</span> All rights reserved.
-  </footer>
+  const businessNumber = "2348148322325";
 
-  <script>
-    // IMPORTANT:
-    // Replace this placeholder with your WhatsApp number.
-    // Use country code 234 and remove the first zero.
-    const WHATSAPP_NUMBER = "2348148322325";
+  const whatsappMessage =
+    "Hello Simple J!\n\n" +
+    "Name: " + name + "\n" +
+    "Phone: " + phone + "\n" +
+    "Email: " + email + "\n" +
+    "Interested in: " + product + "\n" +
+    "Message: " + message;
 
-    const form = document.getElementById("contactForm");
-    const submitBtn = document.getElementById("submitBtn");
-    const buttonText = document.getElementById("buttonText");
-    const buttonArrow = document.getElementById("buttonArrow");
+  window.open(
+    "https://wa.me/" + businessNumber + "?text=" + encodeURIComponent(whatsappMessage),
+    "_blank"
+  );
+});
+</script>
 
-    function createBurst(button) {
-      const rect = button.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-
-      for (let i = 0; i < 24; i++) {
-        const particle = document.createElement("span");
-        particle.className = "particle";
-
-        const angle = (Math.PI * 2 * i) / 24;
-        const distance = 35 + Math.random() * 90;
-
-        particle.style.left = centerX + "px";
-        particle.style.top = centerY + "px";
-        particle.style.setProperty("--x", Math.cos(angle) * distance + "px");
-        particle.style.setProperty("--y", Math.sin(angle) * distance + "px");
-
-        document.body.appendChild(particle);
-        setTimeout(() => particle.remove(), 900);
-      }
-    }
-
-    form.addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      const name = document.getElementById("name").value.trim();
-      const address = document.getElementById("address").value.trim();
-      const product = document.getElementById("product").value.trim();
-      const message = document.getElementById("message").value.trim();
-
-      if (!name || !address || !product || !message) {
-        alert("Please complete all fields.");
-        return;
-      }
-
-      if (!/^\d{7,15}$/.test(WHATSAPP_NUMBER) ||
-          WHATSAPP_NUMBER.includes("X")) {
-        alert("Please add your real WhatsApp number in the code first.");
-        return;
-      }
-
-      const whatsappMessage =
-        "Hello Simple J! I would like to make an enquiry.\n\n" +
-        "Name: " + name + "\n" +
-        "Address: " + address + "\n" +
-        "Product: " + product + "\n" +
-        "Message: " + message;
-
-      const whatsappURL =
-        "https://wa.me/" + WHATSAPP_NUMBER +
-        "?text=" + encodeURIComponent(whatsappMessage);
-
-      createBurst(submitBtn);
-      submitBtn.disabled = true;
-      buttonText.textContent = "Preparing your message...";
-      buttonArrow.textContent = "✦";
-
-      setTimeout(function() {
-        window.location.href = whatsappURL;
-      }, 650);
-    });
-  </script>
 </body>
 </html>
