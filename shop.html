@@ -2,410 +2,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop Gadgets | Simple J</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop | Simple J</title>
+<link rel="stylesheet" href="style.css">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    body {
-      background: #050a10;
-      color: #fff;
-    }
-
-    header {
-      background: #080e16;
-      border-bottom: 1px solid #1d2a39;
-      padding: 20px 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .logo {
-      font-size: 27px;
-      font-weight: bold;
-    }
-
-    .logo span {
-      color: #078cff;
-    }
-
-    .tagline {
-      margin-top: 5px;
-      color: #9aaabd;
-      font-size: 12px;
-    }
-
-    nav {
-      display: flex;
-      gap: 25px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: #dce5ef;
-      text-decoration: none;
-      font-size: 14px;
-      transition: 0.3s;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: #078cff;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 65px 20px 45px;
-      background: radial-gradient(
-        ellipse at top,
-        #092d50 0%,
-        #050a10 72%
-      );
-    }
-
-    .hero small {
-      color: #16a0ff;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 12px;
-    }
-
-    .hero h1 {
-      font-size: clamp(35px, 5vw, 52px);
-      margin: 17px 0;
-    }
-
-    .hero h1 span {
-      color: #078cff;
-    }
-
-    .hero p {
-      color: #aab8c8;
-      max-width: 560px;
-      margin: auto;
-      line-height: 1.8;
-      font-size: 15px;
-    }
-
-    .shop-section {
-      max-width: 1400px;
-      margin: auto;
-      padding: 45px 5% 70px;
-    }
-
-    .section-heading {
-      margin-bottom: 28px;
-    }
-
-    .section-heading h2 {
-      font-size: 27px;
-      margin-bottom: 9px;
-    }
-
-    .section-heading p {
-      color: #95a4b6;
-      font-size: 14px;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 22px;
-    }
-
-    .product-card {
-      background: linear-gradient(145deg, #101923, #080e15);
-      border: 1px solid #1e2c3c;
-      border-radius: 13px;
-      overflow: hidden;
-      transition: transform 0.3s, border-color 0.3s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-5px);
-      border-color: #078cff;
-    }
-
-    .product-image {
-      width: 100%;
-      height: 230px;
-      background: #101722;
-      overflow: hidden;
-    }
-
-    .product-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 15px;
-      transition: transform 0.4s;
-    }
-
-    .product-card:hover .product-image img {
-      transform: scale(1.06);
-    }
-
-    .product-info {
-      padding: 18px;
-      border-top: 1px solid #1a2938;
-    }
-
-    .category {
-      color: #078cff;
-      text-transform: uppercase;
-      font-size: 10px;
-      letter-spacing: 1.5px;
-    }
-
-    .product-info h3 {
-      font-size: 16px;
-      margin-top: 9px;
-      line-height: 1.5;
-    }
-
-    footer {
-      background: #080e16;
-      border-top: 1px solid #1d2a39;
-      padding: 30px 6%;
-      text-align: center;
-      color: #91a0b2;
-      font-size: 13px;
-    }
-
-    footer span {
-      color: #078cff;
-    }
-
-    @media (max-width: 1000px) {
-      .product-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 700px) {
-      header {
-        padding: 18px 5%;
-      }
-
-      nav {
-        gap: 16px;
-      }
-
-      .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 13px;
-      }
-
-      .product-image {
-        height: 180px;
-      }
-
-      .product-info {
-        padding: 13px;
-      }
-
-      .product-info h3 {
-        font-size: 14px;
-      }
-
-      .shop-section {
-        padding: 35px 4% 50px;
-      }
-    }
-
-    @media (max-width: 380px) {
-      .product-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .product-image {
-        height: 240px;
-      }
-    }
-  </style>
+<style>
+.shop-hero{text-align:center;padding:85px 6%;background:radial-gradient(ellipse at center,rgba(214,173,101,.15),transparent 65%)}
+.shop-hero small,.product-brand{color:#d6ad65;letter-spacing:3px;font-size:10px}
+.shop-hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(42px,7vw,75px);margin:18px 0;letter-spacing:-3px}
+.shop-hero h1 span{color:#d6ad65}
+.shop-hero p{color:#999;font-size:14px;line-height:1.8}
+.filter-area{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;padding:30px 15px;background:#0d0e10}
+.filter-btn{background:transparent;border:1px solid #383838;color:#aaa;padding:12px 19px;font-size:10px;letter-spacing:1px;cursor:pointer;transition:.3s}
+.filter-btn:hover,.filter-btn.active{background:#d6ad65;color:#08090b;border-color:#d6ad65}
+.catalogue-heading{padding:55px 8% 10px}
+.catalogue-heading h2{font-family:'Space Grotesk',sans-serif;font-size:30px}
+.catalogue-heading p{color:#888;font-size:12px;margin-top:10px}
+.shop-grid{padding:35px 8% 100px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.shop-item{background:#121418;border:1px solid #282a30;overflow:hidden;transition:.4s}
+.shop-item:hover{transform:translateY(-8px);border-color:#d6ad65;box-shadow:0 20px 45px #0007}
+.shop-item.hide{display:none}
+.shop-image{height:260px;overflow:hidden;background:#191b20}
+.shop-image img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.shop-item:hover img{transform:scale(1.08)}
+.shop-info{padding:23px}
+.shop-info h3{font-family:'Space Grotesk',sans-serif;font-size:20px;margin:12px 0}
+.shop-info p{color:#999;font-size:12px;line-height:1.8;min-height:43px}
+.shop-info a{display:inline-block;margin-top:18px;color:#d6ad65;font-size:10px;letter-spacing:1px}
+.shop-info a:hover{color:white}
+.no-results{text-align:center;grid-column:1/-1;color:#aaa;padding:40px}
+.shop-bottom{text-align:center;padding:75px 20px;background:#111318}
+.shop-bottom h2{font-family:'Space Grotesk',sans-serif;font-size:35px;margin-bottom:15px}
+.shop-bottom p{color:#999;font-size:13px;margin-bottom:25px}
+@media(max-width:850px){.shop-grid{grid-template-columns:repeat(2,1fr);padding-left:5%;padding-right:5%}}
+@media(max-width:580px){.shop-grid{grid-template-columns:1fr}.shop-image{height:290px}}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div>
-      <div class="logo">Simple <span>J</span></div>
-      <p class="tagline">Smart Gadgets. Better Living.</p>
-    </div>
+<div class="announcement">DISCOVER SOMETHING EXCEPTIONAL</div>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="shop.html" class="active">Shop</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
-    </nav>
-  </header>
+<nav class="navbar">
+<a href="index.html" class="logo">SIMPLE<span>J.</span></a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="shop.html">Shop</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+<a href="contact.html" class="nav-contact">GET IN TOUCH ↗</a>
+</nav>
 
-  <section class="hero">
-    <small>Discover Our Collection</small>
-    <h1>Explore Our <span>Gadgets</span></h1>
-    <p>
-      Discover modern technology, quality electronics and
-      stylish accessories selected for your everyday life.
-    </p>
-  </section>
+<header class="shop-hero">
+<small>THE SIMPLE J COLLECTION</small>
+<h1>Technology, <span>redefined.</span></h1>
+<p>Explore exceptional devices from some of the world's leading technology brands.</p>
+</header>
 
-  <main class="shop-section">
-    <div class="section-heading">
-      <h2>Our Products</h2>
-      <p>Explore our collection of gadgets and accessories.</p>
-    </div>
+<div class="filter-area">
+<button class="filter-btn active" data-filter="all">ALL PRODUCTS</button>
+<button class="filter-btn" data-filter="apple">APPLE</button>
+<button class="filter-btn" data-filter="samsung">SAMSUNG</button>
+<button class="filter-btn" data-filter="sony">SONY</button>
+<button class="filter-btn" data-filter="jbl">JBL</button>
+<button class="filter-btn" data-filter="dell">DELL</button>
+<button class="filter-btn" data-filter="nothing">NOTHING</button>
+</div>
 
-    <div class="product-grid">
+<div class="catalogue-heading">
+<h2>Explore our collection.</h2>
+<p id="product-count">30 products</p>
+</div>
 
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=700&q=85"
-               alt="Modern smartphone">
-        </div>
-        <div class="product-info">
-          <span class="category">Phones</span>
-          <h3>Smartphones</h3>
-        </div>
+<main class="shop-grid" id="shopGrid"></main>
+
+<section class="shop-bottom">
+<h2>Found something you love?</h2>
+<p>Contact our team to enquire about your preferred device.</p>
+<a href="contact.html" class="btn-primary">CONTACT SIMPLE J ↗</a>
+</section>
+
+<footer class="footer">
+<div class="footer-top">
+<div>
+<a href="index.html" class="logo">SIMPLE<span>J.</span></a>
+<p>Technology, thoughtfully selected.</p>
+</div>
+<div>
+<h3>Explore</h3>
+<a href="index.html">Home</a>
+<a href="shop.html">Shop</a>
+<a href="about.html">About us</a>
+</div>
+<div>
+<h3>Support</h3>
+<a href="contact.html">Contact</a>
+<a href="faq.html">FAQs</a>
+</div>
+</div>
+<div class="footer-bottom">© 2026 SIMPLE J. All rights reserved.</div>
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+const products = [
+  // APPLE
+  {brand:"APPLE",category:"apple",name:"iPhone 17 Pro Max",description:"A premium smartphone with advanced camera and performance features.",image:"photo-1592899677977-9c10ca588bbd"},
+  {brand:"APPLE",category:"apple",name:"iPhone 17 Pro",description:"Powerful performance and an advanced mobile photography experience.",image:"photo-1511707171634-5f897ff02aa9"},
+  {brand:"APPLE",category:"apple",name:"iPhone 17",description:"A modern iPhone experience with a beautiful design.",image:"photo-1592750475338-74b7b21085ab"},
+  {brand:"APPLE",category:"apple",name:"iPhone 16 Pro Max",description:"A powerful device designed for creativity and everyday use.",image:"photo-1512499617640-c74ae3a79d37"},
+  {brand:"APPLE",category:"apple",name:"MacBook Air",description:"A slim and portable laptop for productivity and creativity.",image:"photo-1517336714731-489689fd1ca8"},
+
+  // SAMSUNG
+  {brand:"SAMSUNG",category:"samsung",name:"Galaxy S25 Ultra",description:"Premium Galaxy technology with an advanced camera experience.",image:"photo-1610945265064-0e34e5519bbf"},
+  {brand:"SAMSUNG",category:"samsung",name:"Galaxy S25+",description:"A refined smartphone experience with a stunning display.",image:"photo-1598327105666-5b89351aff97"},
+  {brand:"SAMSUNG",category:"samsung",name:"Galaxy Z Fold7",description:"Discover a foldable smartphone designed for a larger experience.",image:"photo-1533228100845-08145b01de14"},
+  {brand:"SAMSUNG",category:"samsung",name:"Galaxy Z Flip7",description:"A compact foldable design with modern smartphone features.",image:"photo-1605236453806-6ff36851218e"},
+  {brand:"SAMSUNG",category:"samsung",name:"Galaxy A56",description:"A stylish Galaxy smartphone for everyday connectivity.",image:"photo-1565849904461-04a58ad377e0"},
+
+  // SONY
+  {brand:"SONY",category:"sony",name:"WH-1000XM6",description:"Premium wireless headphones with noise-cancelling technology.",image:"photo-1505740420928-5e560c06d30e"},
+  {brand:"SONY",category:"sony",name:"WH-1000XM5",description:"Comfortable wireless listening with immersive sound.",image:"photo-1546435770-a3e426bf472b"},
+  {brand:"SONY",category:"sony",name:"WF-1000XM5",description:"Compact wireless earbuds designed for premium listening.",image:"photo-1606220945770-b5b6c2c55bf1"},
+  {brand:"SONY",category:"sony",name:"ULT WEAR",description:"Wireless headphones designed for powerful bass and comfort.",image:"photo-1484704849700-f032a568e944"},
+  {brand:"SONY",category:"sony",name:"SRS-XB100",description:"A compact portable speaker for music on the move.",image:"photo-1608043152269-423dbba4e7e1"},
+
+  // JBL
+  {brand:"JBL",category:"jbl",name:"JBL Charge 6",description:"Portable Bluetooth speaker for powerful everyday sound.",image:"photo-1608156639585-b3a032ef9689"},
+  {brand:"JBL",category:"jbl",name:"JBL Flip 7",description:"A portable speaker designed for music wherever you go.",image:"photo-1589003077984-894e133dabab"},
+  {brand:"JBL",category:"jbl",name:"JBL Xtreme 4",description:"A larger portable speaker for powerful listening experiences.",image:"photo-1608043152269-423dbba4e7e1"},
+  {brand:"JBL",category:"jbl",name:"JBL Tune 770NC",description:"Wireless headphones with noise-cancelling features.",image:"photo-1546435770-a3e426bf472b"},
+  {brand:"JBL",category:"jbl",name:"JBL Live Beam 3",description:"Wireless earbuds made for everyday listening.",image:"photo-1590658268037-6bf12165a8df"},
+
+  // DELL
+  {brand:"DELL",category:"dell",name:"Dell XPS 13",description:"A sleek and portable laptop for modern productivity.",image:"photo-1496181133206-80ce9b88a853"},
+  {brand:"DELL",category:"dell",name:"Dell XPS 16",description:"A premium laptop designed for demanding creative work.",image:"photo-1517336714731-489689fd1ca8"},
+  {brand:"DELL",category:"dell",name:"Dell Inspiron 14",description:"An everyday laptop for work, learning and entertainment.",image:"photo-1588872657578-7efd1f1555ed"},
+  {brand:"DELL",category:"dell",name:"Dell Latitude 7450",description:"A business-focused laptop for professional productivity.",image:"photo-1498050108023-c5249f4df085"},
+  {brand:"DELL",category:"dell",name:"Alienware m16 R2",description:"A performance-focused gaming laptop from Alienware.",image:"photo-1593642632823-8f785ba67e45"},
+
+  // NOTHING
+  {brand:"NOTHING",category:"nothing",name:"Nothing Phone (3)",description:"A distinctive smartphone with a transparent-inspired design.",image:"photo-1556656793-08538906a9f8"},
+  {brand:"NOTHING",category:"nothing",name:"Nothing Phone (3a)",description:"Modern smartphone design and a clean software experience.",image:"photo-1511707171634-5f897ff02aa9"},
+  {brand:"NOTHING",category:"nothing",name:"Nothing Phone (3a) Pro",description:"A refined smartphone experience with versatile photography.",image:"photo-1592899677977-9c10ca588bbd"},
+  {brand:"NOTHING",category:"nothing",name:"CMF Phone 2 Pro",description:"A distinctive phone from the CMF family by Nothing.",image:"photo-1598327105666-5b89351aff97"},
+  {brand:"NOTHING",category:"nothing",name:"Nothing Ear (a)",description:"Wireless earbuds with a distinctive modern design.",image:"photo-1606220945770-b5b6c2c55bf1"}
+];
+
+const grid = document.getElementById("shopGrid");
+const count = document.getElementById("product-count");
+
+function renderProducts(category = "all") {
+  const filtered = category === "all"
+    ? products
+    : products.filter(product => product.category === category);
+
+  count.textContent = `${filtered.length} products`;
+
+  if (!filtered.length) {
+    grid.innerHTML = '<p class="no-results">No products found.</p>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(product => `
+    <article class="shop-item">
+      <div class="shop-image">
+        <img
+          src="https://images.unsplash.com/${product.image}?auto=format&fit=crop&w=900&q=85"
+          alt="${product.brand} ${product.name}"
+          loading="lazy"
+        >
       </div>
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=700&q=85"
-               alt="Laptop computer">
-        </div>
-        <div class="product-info">
-          <span class="category">Computers</span>
-          <h3>Laptops</h3>
-        </div>
+      <div class="shop-info">
+        <small class="product-brand">${product.brand}</small>
+        <h3>${product.name}</h3>
+        <p>${product.description}</p>
+        <a href="contact.html">ENQUIRE ABOUT THIS ↗</a>
       </div>
+    </article>
+  `).join("");
+}
 
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=85"
-               alt="Smartwatch">
-        </div>
-        <div class="product-info">
-          <span class="category">Wearables</span>
-          <h3>Smart Watches</h3>
-        </div>
-      </div>
+document.querySelectorAll(".filter-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+    renderProducts(button.dataset.filter);
+  });
+});
 
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=85"
-               alt="Wireless headphones">
-        </div>
-        <div class="product-info">
-          <span class="category">Audio</span>
-          <h3>Headphones</h3>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=700&q=85"
-               alt="Wireless earbuds">
-        </div>
-        <div class="product-info">
-          <span class="category">Audio</span>
-          <h3>Wireless Earbuds</h3>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=700&q=85"
-               alt="Gaming controller">
-        </div>
-        <div class="product-info">
-          <span class="category">Gaming</span>
-          <h3>Gaming Consoles & Controllers</h3>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=700&q=85"
-               alt="Tablet device">
-        </div>
-        <div class="product-info">
-          <span class="category">Devices</span>
-          <h3>Tablets</h3>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=700&q=85"
-               alt="Wireless speaker">
-        </div>
-        <div class="product-info">
-          <span class="category">Accessories</span>
-          <h3>Wireless Speakers</h3>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=700&q=85"
-               alt="Digital camera">
-        </div>
-        <div class="product-info">
-          <span class="category">Photography</span>
-          <h3>Digital Cameras</h3>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=700&q=85"
-               alt="Audio accessories">
-        </div>
-        <div class="product-info">
-          <span class="category">Accessories</span>
-          <h3>Audio Accessories</h3>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=700&q=85"
-               alt="Computer accessories">
-        </div>
-        <div class="product-info">
-          <span class="category">Computer Accessories</span>
-          <h3>Computer Accessories</h3>
-        </div>
-      </div>
-
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1609692814858-f7cd2f0afa4f?auto=format&fit=crop&w=700&q=85"
-               alt="Electronic accessories">
-        </div>
-        <div class="product-info">
-          <span class="category">Accessories</span>
-          <h3>Everyday Tech Accessories</h3>
-        </div>
-      </div>
-
-    </div>
-  </main>
-
-  <footer>
-    &copy; 2026 Simple <span>J</span>. Smart Gadgets. Better Living.
-  </footer>
+renderProducts();
+</script>
 
 </body>
 </html>

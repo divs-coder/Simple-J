@@ -4,203 +4,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn about Simple J and our approach to everyday technology.">
-
+  <meta name="description" content="Discover the story, vision and values behind Simple J — technology, elevated.">
   <title>About Us | Simple J</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Correct paths for GitHub Pages -->
   <link rel="stylesheet" href="style.css">
-  <script src="main.js" defer></script>
-</head>
 
-<body>
+  <style>
+    .about-hero {
+      min-height: 590px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 100px 8%;
+      background:
+        linear-gradient(90deg, rgba(5,5,5,.96), rgba(5,5,5,.65), rgba(5,5,5,.2)),
+        url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=2000&q=90") center/cover;
+    }
 
-  <header class="site-header">
-    <div class="container nav-wrap">
+    .about-hero-content {
+      max-width: 750px;
+      position: relative;
+      z-index: 2;
+      animation: aboutRise 1s ease both;
+    }
 
-      <a class="brand" href="index.html">
-        Simple <span>J</span>
-        <small>Smart Gadgets. Better Living.</small>
-      </a>
+    .about-eyebrow {
+      color: #d6b56d;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
 
-      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
-        ☰
-      </button>
+    .about-hero h1 {
+      color: #fff;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(48px, 7vw, 88px);
+      line-height: 1.05;
+      font-weight: 500;
+      margin: 0 0 25px;
+    }
 
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="shop.html#categories">Categories</a>
-        <a class="active" href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+    .about-hero h1 span {
+      color: #d6b56d;
+      font-style: italic;
+    }
 
-      <div class="nav-actions">
-        <label class="search-box">
-          <span>⌕</span>
-          <input id="siteSearch" type="search" placeholder="Search gadgets..." aria-label="Search gadgets">
-        </label>
-
-        <button class="icon-btn cart-button" type="button" aria-label="Shopping cart">
-          🛒 <span class="cart-count">0</span>
-        </button>
-      </div>
-
-    </div>
-  </header>
-
-  <main>
-
-    <section class="page-hero about-hero">
-      <div class="container">
-        <p class="eyebrow">THE STORY BEHIND SIMPLE J</p>
-        <h1>Technology should make life <span>simpler.</span></h1>
-        <p>We believe choosing the right gadget should feel clear, helpful and enjoyable.</p>
-      </div>
-    </section>
-
-    <section class="container story-section">
-
-      <div class="story-image">
-        <img
-          src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=85"
-          alt="Modern retail space"
-          loading="lazy"
-        >
-      </div>
-
-      <div class="story-copy">
-        <p class="section-kicker">WHO WE ARE</p>
-        <h2>Good gadgets. Straightforward service.</h2>
-
-        <p>
-          Simple J is a gadget store built around a simple idea:
-          helping people discover useful technology without making
-          the experience complicated.
-        </p>
-
-        <p>
-          From everyday accessories to devices for work, learning
-          and entertainment, our goal is to make product information
-          easy to understand and shopping easier to navigate.
-        </p>
-
-        <p class="muted-note">
-          Update this introduction with your real business story,
-          location and experience before publishing.
-        </p>
-
-        <a class="btn btn-primary" href="shop.html">
-          Explore our products →
-        </a>
-      </div>
-
-    </section>
-
-    <section class="values-section">
-      <div class="container">
-
-        <div class="section-heading">
-          <div>
-            <p class="section-kicker">WHAT MATTERS TO US</p>
-            <h2>Our promise</h2>
-            <p>A few principles that guide the Simple J experience.</p>
-          </div>
-        </div>
-
-        <div class="values-grid">
-
-          <article class="value-card">
-            <span class="value-icon">✦</span>
-            <h3>Quality choices</h3>
-            <p>
-              We aim to offer useful products with clear descriptions,
-              so customers can make informed choices.
-            </p>
-          </article>
-
-          <article class="value-card">
-            <span class="value-icon">↗</span>
-            <h3>Helpful service</h3>
-            <p>
-              We want every question to be met with clear information
-              and respectful support.
-            </p>
-          </article>
-
-          <article class="value-card">
-            <span class="value-icon">◇</span>
-            <h3>Clear communication</h3>
-            <p>
-              Honest pricing, understandable product details and
-              transparent delivery information matter.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="container about-cta">
-      <div>
-        <p class="section-kicker">LET'S TALK TECH</p>
-        <h2>Have a question about a gadget?</h2>
-        <p>Send us a message and tell us what you are looking for.</p>
-      </div>
-
-      <a class="btn btn-primary" href="contact.html">
-        Contact Us →
-      </a>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-
-      <div class="footer-brand">
-        <a class="brand" href="index.html">
-          Simple <span>J</span>
-          <small>Smart Gadgets. Better Living.</small>
-        </a>
-        <p>Making useful technology easier to find.</p>
-      </div>
-
-      <div>
-        <h4>Quick Links</h4>
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
-      </div>
-
-      <div>
-        <h4>Categories</h4>
-        <a href="shop.html?category=Phones">Phones &amp; Tablets</a>
-        <a href="shop.html?category=Laptops">Laptops</a>
-        <a href="shop.html?category=Audio">Audio</a>
-      </div>
-
-      <div>
-        <h4>Stay Connected</h4>
-        <p>We are happy to hear from you.</p>
-        <a class="footer-highlight" href="contact.html">
-          Contact our team →
-        </a>
-      </div>
-
-    </div>
-
-    <div class="container footer-bottom">
-      <span>© <span class="current-year"></span> Simple J. All rights reserved.</span>
-      <span><a href="contact.html">Support</a></span>
-    </div>
-  </footer>
-
-</body>
-</html>
+   .about-hero p {
+  color: #d0d0d0;
+  max-width: 540px;
+  font-size: 16px;
+  line-height: 1.9;
+}

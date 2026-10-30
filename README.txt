@@ -1,24 +1,81 @@
-SIMPLE J GADGET WEBSITE
+# SIMPLE J. — Technology, Elevated.
 
-FILES
-- index.html                 Home page
-- shop.html                  Product listing page with search/category filter
-- about.html                 About Us page
-- contact.html               Contact form page
-- assets/css/style.css       Shared responsive design
-- assets/js/main.js          Cart, search, filtering, menu and form behavior
+A modern technology retail website designed to make discovering premium gadgets simple, elegant and enjoyable.
 
-HOW TO RUN
-1. Download and extract simple-j-website.zip.
-2. Open the extracted simple-j-website folder in VS Code.
-3. In VS Code, right-click index.html and choose Open with Live Server (if installed).
-   Alternatively, double-click index.html to open it in your browser.
-4. Use the Home, Shop, About Us and Contact links to move between pages.
+![Simple J](https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=1400&q=85)
 
-IMPORTANT CUSTOMISATIONS BEFORE YOU PUBLISH
-1. Replace the sample products, prices and product photos with your actual stock.
-2. Edit assets/js/main.js and change CONTACT_EMAIL from your-email@example.com to your real email.
-3. Replace the placeholder address, telephone number and email on contact.html.
-4. The cart is a browser-only demo. It does not process payments or send actual orders.
-5. The contact form opens the customer's email application; it does not send messages through a server.
-6. Images and Google Fonts are loaded from the internet, so those parts need an internet connection.
+## About Simple J
+
+Simple J is a technology retail brand focused on showcasing products from recognised technology companies through a clean, modern and premium online experience.
+
+Our goal is to bring product discovery, thoughtful design and customer experience together in one place.
+
+## Featured Technology Brands
+
+- Apple
+- Samsung
+- Sony
+- JBL
+- Dell
+- Nothing
+
+## Website Features
+
+- Premium dark-themed design with gold accents.
+- Responsive layout for desktop, tablet and mobile.
+- Animated homepage and visual sections.
+- Dedicated product collection page.
+- Brand-based product filtering.
+- About Us page.
+- Contact page with WhatsApp enquiry integration.
+- FAQ page.
+- Smooth scrolling and interactive effects.
+
+## Built With
+
+- HTML5
+- CSS3
+- JavaScript
+- Google Fonts
+- Unsplash photography
+- Pexels video resources
+
+## Project Structure
+
+```text
+Simple-J/
+│
+├── index.html
+├── shop.html
+├── about.html
+├── contact.html
+├── faq.html
+├── style.css
+├── script.js
+└── README.md
+```
+
+## Getting Started
+
+1. Download or clone this repository.
+2. Open the `Simple-J` folder in Visual Studio Code.
+3. Open `index.html` using Live Server.
+4. Explore the website through your browser.
+
+## Brand Philosophy
+
+**Technology. Elevated.**
+
+We believe technology should be more than a product. It should be an experience built around quality, simplicity and innovation.
+
+## Contact
+
+For product enquiries and customer support, visit the Contact page on the website.
+
+## Credits
+
+Product and background photography are sourced from Unsplash. Video resources are sourced from Pexels.
+
+---
+
+© 2026 SIMPLE J. All Rights Reserved.

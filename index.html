@@ -1,71 +1,166 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Simple J — smart gadgets, better living. Shop phones, laptops, audio, wearables and accessories." />
-  <title>Simple J | Smart Gadgets, Better Living</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-<script src="main.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Simple J — Discover premium smartphones, laptops, audio and technology.">
+  <title>Simple J | The Future of Technology</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="index.html" aria-label="Simple J home">Simple <span>J</span><small>Smart Gadgets. Better Living.</small></a>
-      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a class="active" href="index.html">Home</a><a href="shop.html">Shop</a>
-        <a href="shop.html#categories">Categories</a><a href="about.html">About Us</a><a href="contact.html">Contact</a>
-      </nav>
-      <div class="nav-actions">
-        <label class="search-box"><span aria-hidden="true">⌕</span><input id="siteSearch" type="search" placeholder="Search gadgets..." aria-label="Search gadgets"></label>
-        <button class="icon-btn cart-button" type="button" aria-label="Shopping cart">🛒 <span class="cart-count">0</span></button>
+
+  <div class="announcement">
+    THE FUTURE OF TECHNOLOGY STARTS HERE
+  </div>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo">SIMPLE<span>J.</span></a>
+
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <a href="contact.html" class="nav-contact">GET IN TOUCH ↗</a>
+  </nav>
+
+  <header class="hero">
+
+    <video class="hero-video" autoplay muted loop playsinline
+      poster="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200">
+      <source src="https://videos.pexels.com/video-files/3129671/3129671-hd_1920_1080_25fps.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-content">
+      <div class="eyebrow">WELCOME TO SIMPLE J</div>
+
+      <h1>
+        Technology.<br>
+        <span>Elevated.</span>
+      </h1>
+
+      <p>
+        Discover a world where innovation meets exceptional design.
+        Explore premium gadgets, powerful devices and technology
+        that moves you forward.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="shop.html" class="btn-primary">EXPLORE COLLECTION ↗</a>
+        <a href="about.html" class="btn-outline">OUR STORY</a>
       </div>
     </div>
+
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow"><span>✦</span> Latest Tech · Trusted Quality</p>
-          <h1>Upgrade Your <span>Everyday Life</span></h1>
-          <p class="hero-text">Discover gadgets, smart devices and accessories that make life easier, smarter and more connected.</p>
-          <a class="btn btn-primary" href="shop.html">Shop Now <span>→</span></a>
-          <div class="trust-row"><div>♧ <span>Fast & reliable<br>delivery</span></div><div>♢ <span>Secure<br>payments</span></div><div>◉ <span>Customer<br>support</span></div></div>
-        </div>
-        <div class="hero-image-wrap"><img class="hero-image" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1300&q=85" alt="Modern technology and electronic devices on a desk"><div class="image-note">Premium gadgets<br>for a smarter you.</div></div>
+  <section class="brand-strip">
+    <span>APPLE</span>
+    <span>SAMSUNG</span>
+    <span>SONY</span>
+    <span>JBL</span>
+    <span>DELL</span>
+    <span>NOTHING</span>
+  </section>
+
+  <section class="section-heading reveal">
+    <small>CURATED TECHNOLOGY</small>
+    <h2>Discover the collection.</h2>
+    <p>Explore technology selected for performance, design and innovation.</p>
+  </section>
+
+  <section class="products">
+
+    <article class="product-card reveal">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=900" alt="Premium smartphone">
       </div>
-    </section>
-
-    <section class="container category-strip" id="categories" aria-label="Shop by category">
-      <a class="category-tile" href="shop.html?category=Phones">▯ <span>Phones & Tablets</span><b>›</b></a>
-      <a class="category-tile" href="shop.html?category=Laptops">▱ <span>Laptops & Computers</span><b>›</b></a>
-      <a class="category-tile" href="shop.html?category=Wearables">◷ <span>Smart Watches</span><b>›</b></a>
-      <a class="category-tile" href="shop.html?category=Audio">♬ <span>Audio & Headphones</span><b>›</b></a>
-      <a class="category-tile" href="shop.html?category=Gaming">⌘ <span>Gaming</span><b>›</b></a>
-      <a class="category-tile" href="shop.html?category=Accessories">⌁ <span>Accessories</span><b>›</b></a>
-    </section>
-
-    <section class="container section-block">
-      <div class="section-heading"><div><p class="section-kicker">HAND-PICKED FOR YOU</p><h2>Best Sellers</h2><p>Popular picks for work, play and everyday life.</p></div><a class="text-link" href="shop.html">View all products →</a></div>
-      <div class="product-grid" id="featuredProducts">
-        <article class="product-card" data-name="Nova Pro Smartphone" data-category="Phones"><a class="product-image" href="shop.html"><img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=650&q=80" alt="Smartphone"/><span class="product-tag">Best seller</span></a><div class="product-info"><p class="product-category">PHONES</p><h3>Nova Pro Smartphone</h3><p class="product-meta">256GB · Graphite</p><div class="rating">★★★★★ <small>(124)</small></div><div class="product-bottom"><strong>₦450,000</strong><button class="btn btn-small add-to-cart" data-product="Nova Pro Smartphone" data-price="450000">Add to Cart +</button></div></div></article>
-        <article class="product-card" data-name="AirBook 13 Laptop" data-category="Laptops"><a class="product-image" href="shop.html"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=650&q=80" alt="Slim laptop"/><span class="product-tag">Popular</span></a><div class="product-info"><p class="product-category">LAPTOPS</p><h3>AirBook 13 Laptop</h3><p class="product-meta">13-inch · 256GB SSD</p><div class="rating">★★★★★ <small>(86)</small></div><div class="product-bottom"><strong>₦1,200,000</strong><button class="btn btn-small add-to-cart" data-product="AirBook 13 Laptop" data-price="1200000">Add to Cart +</button></div></div></article>
-        <article class="product-card" data-name="Pulse Smartwatch" data-category="Wearables"><a class="product-image" href="shop.html"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=650&q=80" alt="Smart watch"/></a><div class="product-info"><p class="product-category">WEARABLES</p><h3>Pulse Smartwatch</h3><p class="product-meta">Fitness tracking · GPS</p><div class="rating">★★★★★ <small>(78)</small></div><div class="product-bottom"><strong>₦185,000</strong><button class="btn btn-small add-to-cart" data-product="Pulse Smartwatch" data-price="185000">Add to Cart +</button></div></div></article>
-        <article class="product-card" data-name="AirPods Style Earbuds" data-category="Audio"><a class="product-image" href="shop.html"><img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=650&q=80" alt="Wireless earbuds"/></a><div class="product-info"><p class="product-category">AUDIO</p><h3>AirPods Style Earbuds</h3><p class="product-meta">Wireless · Charging case</p><div class="rating">★★★★★ <small>(112)</small></div><div class="product-bottom"><strong>₦95,000</strong><button class="btn btn-small add-to-cart" data-product="AirPods Style Earbuds" data-price="95000">Add to Cart +</button></div></div></article>
-        <article class="product-card" data-name="Studio Wireless Headphones" data-category="Audio"><a class="product-image" href="shop.html"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=650&q=80" alt="Over-ear headphones"/></a><div class="product-info"><p class="product-category">AUDIO</p><h3>Studio Wireless Headphones</h3><p class="product-meta">Wireless · Noise isolation</p><div class="rating">★★★★★ <small>(64)</small></div><div class="product-bottom"><strong>₦120,000</strong><button class="btn btn-small add-to-cart" data-product="Studio Wireless Headphones" data-price="120000">Add to Cart +</button></div></div></article>
-        <article class="product-card" data-name="GameBox Console" data-category="Gaming"><a class="product-image" href="shop.html"><img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=650&q=80" alt="Gaming controller and console"/></a><div class="product-info"><p class="product-category">GAMING</p><h3>GameBox Console</h3><p class="product-meta">Next-gen gaming · 1TB</p><div class="rating">★★★★★ <small>(89)</small></div><div class="product-bottom"><strong>₦780,000</strong><button class="btn btn-small add-to-cart" data-product="GameBox Console" data-price="780000">Add to Cart +</button></div></div></article>
+      <div class="product-info">
+        <small>SMARTPHONES</small>
+        <h3>Beyond the ordinary.</h3>
+        <p>Discover innovative smartphones designed for modern life.</p>
+        <a href="shop.html" class="product-link">EXPLORE PHONES ↗</a>
       </div>
-    </section>
+    </article>
 
-    <section class="container promo-grid"><a class="promo-card promo-phone" href="shop.html?category=Phones"><div><h3>Latest Phones</h3><p>Big features. Great choices.</p><span>Shop phones →</span></div></a><a class="promo-card promo-laptop" href="shop.html?category=Laptops"><div><h3>Powerful Laptops</h3><p>Work, play, create.</p><span>Shop laptops →</span></div></a><a class="promo-card promo-audio" href="shop.html?category=Audio"><div><h3>Essential Accessories</h3><p>Small gadgets. Big difference.</p><span>Shop accessories →</span></div></a></section>
-    <section class="newsletter"><div class="container newsletter-wrap"><div><p class="section-kicker">THE SIMPLE J UPDATE</p><h2>Good tech. Great offers.</h2><p>Subscribe to hear about new arrivals and special offers.</p></div><form class="newsletter-form" id="newsletterForm"><label class="sr-only" for="newsletterEmail">Email address</label><input id="newsletterEmail" type="email" placeholder="Enter your email address" required><button class="btn btn-primary" type="submit">Join →</button></form></div></section>
-  </main>
+    <article class="product-card reveal">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=900" alt="Modern laptop">
+      </div>
+      <div class="product-info">
+        <small>COMPUTERS</small>
+        <h3>Power your ideas.</h3>
+        <p>Meet laptops built for productivity, creativity and performance.</p>
+        <a href="shop.html" class="product-link">EXPLORE COMPUTERS ↗</a>
+      </div>
+    </article>
 
-  <footer class="site-footer"><div class="container footer-grid"><div class="footer-brand"><a class="brand" href="index.html">Simple <span>J</span><small>Smart Gadgets. Better Living.</small></a><p>Making useful technology easier to find.</p></div><div><h4>Quick Links</h4><a href="index.html">Home</a><a href="shop.html">Shop</a><a href="about.html">About Us</a><a href="contact.html">Contact</a></div><div><h4>Categories</h4><a href="shop.html?category=Phones">Phones & Tablets</a><a href="shop.html?category=Laptops">Laptops</a><a href="shop.html?category=Wearables">Smart Watches</a><a href="shop.html?category=Audio">Audio</a><a href="shop.html?category=Gaming">Gaming</a></div><div><h4>Stay Connected</h4><p>Questions? We would love to hear from you.</p><a class="footer-highlight" href="contact.html">Contact our team →</a></div><div><h4>Shopping with confidence</h4><p class="payment-text">Secure checkout · Clear pricing · Helpful support</p></div></div><div class="container footer-bottom"><span>© <span class="current-year"></span> Simple J. All rights reserved.</span><span><a href="contact.html">Privacy enquiries</a> · <a href="contact.html">Terms & support</a></span></div></footer>
+    <article class="product-card reveal">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900" alt="Premium headphones">
+      </div>
+      <div class="product-info">
+        <small>AUDIO</small>
+        <h3>Hear every detail.</h3>
+        <p>Experience immersive sound with premium audio technology.</p>
+        <a href="shop.html" class="product-link">EXPLORE AUDIO ↗</a>
+      </div>
+    </article>
+
+  </section>
+
+  <section class="brand-feature reveal">
+    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1200" alt="Smartphone technology">
+
+    <div class="brand-feature-content">
+      <small>THE ART OF INNOVATION</small>
+      <h2>Made for what's next.</h2>
+      <p>
+        From powerful smartphones to beautifully designed accessories,
+        find technology that fits your world.
+      </p>
+      <a href="shop.html" class="btn-primary">DISCOVER MORE ↗</a>
+    </div>
+  </section>
+
+  <section class="experience reveal">
+    <small class="eyebrow">THE SIMPLE J EXPERIENCE</small>
+    <h2>Good technology.<br>Better experiences.</h2>
+    <p>
+      Your next favourite device is waiting.
+      Explore our collection and discover something exceptional.
+    </p>
+    <a href="contact.html" class="btn-primary">CONTACT OUR TEAM ↗</a>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo">SIMPLE<span>J.</span></a>
+        <p>Technology, thoughtfully selected.</p>
+      </div>
+
+      <div>
+        <h3>Explore</h3>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About us</a>
+      </div>
+
+      <div>
+        <h3>Support</h3>
+        <a href="contact.html">Contact</a>
+        <a href="faq.html">FAQs</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 SIMPLE J. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
